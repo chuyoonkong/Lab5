@@ -22,4 +22,12 @@ export class PostDetailsComponent implements OnInit {
 
 
    }
+
+   onDelete(id: string){
+    console.log("Deleting item")
+    this.ps.deletePost(id).subscribe(() =>{
+      this.ngOnInit();
+    });
+    }
+    
 }
