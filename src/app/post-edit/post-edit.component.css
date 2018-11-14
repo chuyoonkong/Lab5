@@ -1,0 +1,7 @@
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+
+mat-form-field,
+textarea {
+  width: 100%;
+}

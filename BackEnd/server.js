@@ -87,6 +87,22 @@ app.use(function(req, res, next) {
         });
     })
 
+    app.get('/api/posts/:id', function(req,res){
+        PostModel.find({ _id: req.params.id},
+            function (err, data) {
+                if (err)
+                    return handleError(err);
+                res.json(data);
+            });
+        });
+
+    app.put('/api/posts/:id', function(req,res){
+        PostModel.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+            if (err) return next(err);
+            res.json(post);
+        });
+    });
+        
     var server = app.listen(8081, function () {
         var host = server.address().address
         var port = server.address().port
